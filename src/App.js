@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { CardList } from './components/card-list/card-list';
+import { SearchBox } from './components/search-box/search-box';
 
 class App extends React.Component {
   constructor() {
@@ -39,13 +40,15 @@ class App extends React.Component {
         // never what to change state withing the render function or it will loop forever
 
     return (
-      <div className="App">   
-        <input 
-        type='search' 
+      <div className="App">  
+
+        <SearchBox 
         placeholder='search monsters' 
-        onChange={(e) => this.setState({ searchField: e.target.value })} 
+        handleChange={(e) => this.setState({ searchField: e.target.value })}
         />
+
         <CardList monsters={filteredMonsters} /> 
+        
       </div>
     );
   }
