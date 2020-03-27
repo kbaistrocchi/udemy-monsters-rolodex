@@ -6,12 +6,10 @@ import { SearchBox } from './components/search-box/search-box';
 class App extends React.Component {
   constructor() {
     super();
-
     this.state = {
       monsters: [],
       searchField: ''
     };
-
   }
 
     // instead of hardcoding the monsters state, we will fetch it from an API
@@ -20,6 +18,11 @@ class App extends React.Component {
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(users => this.setState({ monsters: users }));
+  }
+
+  handleChange = e => {
+      console.log(this);
+    this.setState({ searchField: e.target.value });
   }
 
 
@@ -41,14 +44,15 @@ class App extends React.Component {
 
     return (
       <div className="App">  
+      <h1>Monster Rolodex</h1>
 
         <SearchBox 
         placeholder='search monsters' 
-        handleChange={(e) => this.setState({ searchField: e.target.value })}
+        handleChange={this.handleChange}
         />
 
         <CardList monsters={filteredMonsters} /> 
-        
+
       </div>
     );
   }
