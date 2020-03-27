@@ -23,6 +23,21 @@ class App extends React.Component {
 
 
   render() {
+    // destructing: pull properties off of obj and save them as const
+    const { monsters, searchField } = this.state;
+        // this is equivalent to the following:
+            // const monsters = this.state.monsters;
+            // const searchField = this.state.searchField;
+
+    const filteredMonsters = monsters.filter(monster => 
+        monster.name.toLowerCase().includes(searchField.toLowerCase()));
+        // the render function is called every time state changes
+        // therefore, each time the user types anything is search, the state
+        // changes and const searchField changes which changes the filteredMonsters
+        // and these changes are displayed on the DOM
+
+        // never what to change state withing the render function or it will loop forever
+
     return (
       <div className="App">   
         <input 
@@ -30,7 +45,7 @@ class App extends React.Component {
         placeholder='search monsters' 
         onChange={(e) => this.setState({ searchField: e.target.value })} 
         />
-        <CardList monsters={this.state.monsters} /> 
+        <CardList monsters={filteredMonsters} /> 
       </div>
     );
   }
