@@ -29,7 +29,10 @@ class App extends React.Component {
         type='search' 
         placeholder='search monsters' 
         onChange={(e) => {
-            this.setState({ searchField: e.target.value })
+            this.setState({ searchField: e.target.value },
+                () => console.log(this.state)   // secondary function to view state change
+                // otherwise it return wrong state as this.setState is asynchronous
+                )
         }} 
         />
         <CardList monsters={this.state.monsters} /> 
