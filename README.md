@@ -1,3 +1,7 @@
+# Monsters Rolodex
+
+This is a code-along project from Udemy's React mastery course. It includes very basic examples of React functional components and class components.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
