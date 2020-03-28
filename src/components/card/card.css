@@ -4,7 +4,10 @@
     background-color: #95dada;
     border: 1px solid grey;
     border-radius:  5px;
+    width: 250px;
+    height: 350px;
     padding: 25px;
+    margin: 10px;
     cursor: pointer;
     backface-visibility: hidden;
     transform: translateZ(0);
